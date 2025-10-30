@@ -271,7 +271,7 @@ footer {
     top: 0;
     right: 0;
     left: 0;
-    height: 100vh;                /* Full screen height */
+    height: 350px;                /* Full screen height */
     background: #112240ec;        /* Slightly transparent overlay */
     flex-direction: column;
     gap: 0;
@@ -303,3 +303,4 @@ footer {
     background: none;
   }
 }
+
