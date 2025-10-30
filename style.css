@@ -28,6 +28,22 @@ header {
   color: #fff;
 }
 
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  height: 60px;
+}
+/* Burger menu icon */
+.menu-icon {
+  font-size: 2em;
+  color: #64ffda;
+  cursor: pointer;
+  display: none;
+  z-index: 101;
+}
+
 .nav-links {
   list-style: none;
   display: flex;
@@ -35,9 +51,7 @@ header {
   margin: 0;
   padding: 0;
   position: static;
-  background: none;
-  box-shadow: none;
-  flex-wrap: wrap;
+  
 }
 .nav-links li a {
   color: #ccd6f6;
@@ -47,13 +61,6 @@ header {
 }
 .nav-links li a:hover {
   color: #64ffda;
-}
-
-.menu-icon {
-  display: none;
-  font-size: 26px;
-  color: #ccd6f6;
-  cursor: pointer;
 }
 
 /* Hero Section */
@@ -229,38 +236,13 @@ footer {
 }
 
 /* Responsive Navbar */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .about-content {
     flex-direction: column;
     gap: 30px;
   }
 }
 
-@media (max-width: 768px) {
-  header {
-    padding: 12px 18px;
-  }
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    background: #112240;
-    position: absolute;
-    top: 70px;
-    right: 0;
-    width: 200px;
-    border-radius: 5px;
-    padding: 20px 0;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    z-index: 999;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-  .menu-icon {
-    display: block;
-  }
-}
 /* Update font for About section only, e.g., use 'Segoe UI' for modern look */
 .about-text {
   font-family: 'Segoe UI', 'Poppins', Arial, sans-serif;
@@ -276,4 +258,48 @@ footer {
 /* Optional: Slightly increase size for aesthetics */
 .about-text {
   font-size: 1.07em;
+}
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+    z-index: 1101;
+  }
+
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 100vh;                /* Full screen height */
+    background: #112240ec;        /* Slightly transparent overlay */
+    flex-direction: column;
+    gap: 0;
+    border-radius: 0 0 16px 16px; /* Optional: round bottom corners */
+    box-shadow: 0 8px 24px rgba(0,0,0,0.17);
+    z-index: 1100;                /* Above header */
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+    margin: 16px 0;
+  }
+
+  .nav-links li a {
+    display: block;
+    padding: 16px 0;
+    width: 100%;
+    color: #ccd6f6;
+    font-size: 1.3em;
+    border-bottom: 1px solid #22305e;
+    text-decoration: none;
+    background: none;
+  }
 }
